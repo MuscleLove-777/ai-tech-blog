@@ -69,14 +69,22 @@ def main():
 
     logger.info(f"選定結果 - カテゴリ: {category}, キーワード: {keyword}")
 
-    # ステップ2: 記事生成
+    # ステップ2: 記事生成（リトライ付き）
     logger.info("ステップ2: 記事を生成中...")
-    try:
-        generator = ArticleGenerator()
-        article = generator.generate_article(keyword=keyword, category=category)
-    except Exception as e:
-        logger.error(f"記事生成に失敗: {e}")
-        sys.exit(1)
+    max_retries = 3
+    article = None
+    for attempt in range(1, max_retries + 1):
+        try:
+            generator = ArticleGenerator()
+            article = generator.generate_article(keyword=keyword, category=category)
+            break
+        except Exception as e:
+            logger.warning(f"記事生成 試行{attempt}/{max_retries} 失敗: {e}")
+            if attempt == max_retries:
+                logger.error(f"記事生成に{max_retries}回失敗しました。終了します。")
+                sys.exit(1)
+            import time
+            time.sleep(5)
 
     logger.info(f"記事生成完了: {article.get('title', '不明')}")
     logger.info(f"保存先: {article.get('file_path', '不明')}")
