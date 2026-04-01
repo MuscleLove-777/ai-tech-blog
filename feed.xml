@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AI Tech Insights</title>
-    <link>/ai-tech-blog</link>
+    <link>https://musclelove-777.github.io/ai-tech-blog</link>
     <description>AIが自動生成する最新テクノロジーブログ</description>
     <language>ja</language>
-    <lastBuildDate>Wed, 25 Mar 2026 21:32:53 +0900</lastBuildDate>
-    <atom:link href="/ai-tech-blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Wed, 01 Apr 2026 23:11:52 +0900</lastBuildDate>
+    <atom:link href="https://musclelove-777.github.io/ai-tech-blog/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>AI副業で未来を掴む！稼ぐための完全ガイド</title>
-      <link>/ai-tech-blog/articles/ai-fukugyo-complete-guide.html</link>
-      <guid>/ai-tech-blog/articles/ai-fukugyo-complete-guide.html</guid>
+      <link>https://musclelove-777.github.io/ai-tech-blog/articles/ai-fukugyo-complete-guide.html</link>
+      <guid>https://musclelove-777.github.io/ai-tech-blog/articles/ai-fukugyo-complete-guide.html</guid>
       <description></description>
       <category>ビジネス×AI</category>
-      <pubDate>Wed, 25 Mar 2026 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0900</pubDate>
     </item>
   </channel>
 </rss>
