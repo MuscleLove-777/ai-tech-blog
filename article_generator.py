@@ -11,6 +11,7 @@ from datetime import datetime
 from pathlib import Path
 
 from google import genai
+from google.genai import types
 
 import config
 
@@ -76,8 +77,15 @@ class ArticleGenerator:
 
         try:
             # Gemini APIを呼び出し
+            # max_output_tokens を大きく設定し、thinking_budget=0 で
+            # 思考トークンを無効化することで本文が途中で切れないようにする
             response = self.client.models.generate_content(
-                model=self.model_name, contents=prompt
+                model=self.model_name,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    max_output_tokens=16384,
+                    thinking_config=types.ThinkingConfig(thinking_budget=0),
+                ),
             )
 
             response_text = response.text
