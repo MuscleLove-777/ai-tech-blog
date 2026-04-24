@@ -88,6 +88,12 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v6
 
+      # --- llms-txt-injector ---
+      - name: llms.txt を output/site に配置
+        run: |
+          mkdir -p output/site
+          if [ -f llms.txt ]; then cp llms.txt output/site/llms.txt; fi
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
