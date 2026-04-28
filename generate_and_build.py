@@ -22,7 +22,7 @@ def select_keyword() -> tuple[str, str]:
     from llm import get_llm_client
     from config import GEMINI_API_KEY, GEMINI_MODEL, TARGET_CATEGORIES
 
-    client = genai.Client(api_key=GEMINI_API_KEY)
+    client = get_llm_client(__import__('types').SimpleNamespace(GEMINI_API_KEY=GEMINI_API_KEY))
 
     categories_text = "\n".join(f"- {cat}" for cat in TARGET_CATEGORIES)
 
