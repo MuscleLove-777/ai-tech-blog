@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 def select_keyword() -> tuple[str, str]:
     """Gemini APIでカテゴリとキーワードを自動選定する"""
-    from google import genai
+    from llm import get_llm_client
     from config import GEMINI_API_KEY, GEMINI_MODEL, TARGET_CATEGORIES
 
     client = genai.Client(api_key=GEMINI_API_KEY)

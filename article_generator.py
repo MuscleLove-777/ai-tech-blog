@@ -10,7 +10,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 
-from google import genai
+from llm import get_llm_client
 from google.genai import types
 
 import config
@@ -39,7 +39,7 @@ class ArticleGenerator:
                 "環境変数 GEMINI_API_KEY を設定してください。"
             )
 
-        self.client = genai.Client(api_key=config.GEMINI_API_KEY)
+        self.client = get_llm_client(config)
         self.model_name = config.GEMINI_MODEL
 
         # 出力ディレクトリを作成
