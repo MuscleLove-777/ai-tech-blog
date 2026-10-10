@@ -89,6 +89,10 @@ jobs:
           mkdir -p output/site
           if [ -f llms.txt ]; then cp llms.txt output/site/llms.txt; fi
 
+      - name: Apply MuscleLove brand to every page
+        run: |
+          python -m pip install beautifulsoup4==4.15.0
+          python scripts/enhance_project.py --root 'output/site' --project 'ai-tech-blog'
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
